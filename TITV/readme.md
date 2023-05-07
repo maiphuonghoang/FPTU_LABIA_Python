@@ -16,6 +16,10 @@
 17. Kiểu dữ liệu List 
 18. Vòng lặp for
 20. Kiểu dữ liệu String
-
+21. Vòng lặp while
+22. Bài tập chuyển đổi số thập phân sang số nhị phân
+23. Cách sử dụng câu lệnh break và continue 
+24. Kiểu dữ liệu Tuple
+25. Kiểu dữ liệu Set
 
     
