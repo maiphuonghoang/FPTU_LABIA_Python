@@ -1,0 +1,15 @@
+print(5)
+print()
+print("Hello")
+print(6); print('world')
+print("Xin", "chào", 'TITV', 1234)
+print("Xin", "chào", 'TITV', 1234, sep=",")
+
+print("Xin", "Chào")
+print("TITV")
+print("Xin", "Chào", end=': nối với dòng dưới ')
+print("TITV")
+
+print('Tên={}, Họ={}'.format('Mai Phương', 'Hoàng'))
+print("{}{}".format(8, 9))
+print("a={1}, b={1}".format('a', 'b', 'c'))
