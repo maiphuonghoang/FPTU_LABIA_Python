@@ -23,4 +23,9 @@
 #### 25. Kiểu dữ liệu Set
 #### 26. Bài tập rút thăm trúng thưởng
 #### 27. Kiểu dữ liệu Dictionary
-    
+#### 28. Bài tập xây dựng chương trình tra từ điển
+#### 29. Xây dựng Function
+#### 30. Lambda Function 
+#### 31. Lập Trình Hướng đối tượng và cách vẽ sơ đồ lớp
+#### 32. Bài tập Lập Trình Hướng Đối Tượng, phân biệt Method và Static Method
+#### 33. Bài tập về Kế thừa

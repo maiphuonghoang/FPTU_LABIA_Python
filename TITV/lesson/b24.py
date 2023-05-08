@@ -45,4 +45,4 @@ print(max(color)) #yellow
 print(sum(lopHoc))
 
 # Sắp xếp tuple và chuyển về list 
-print(sorted(color))
+print(sorted(color)) #['blue', 'green', 'green', 'red', 'yellow'] 

@@ -71,7 +71,11 @@ DH01
 # Duyệt các khóa 
 for x in sinhVien.keys():
     print(x)
-
+'''
+hoVaTen
+maLop
+diemTrungBinh
+'''
 
 
 
