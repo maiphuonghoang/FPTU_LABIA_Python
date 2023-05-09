@@ -29,3 +29,5 @@
 #### 31. Lập Trình Hướng đối tượng và cách vẽ sơ đồ lớp
 #### 32. Bài tập Lập Trình Hướng Đối Tượng, phân biệt Method và Static Method
 #### 33. Bài tập về Kế thừa
+#### 35. Cách sử dụng Try Except
+#### 36. Cách đọc và ghi file

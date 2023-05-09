@@ -18,7 +18,8 @@ def hamMuBa(a):
 def hamMu(n):
     return lambda x : x**n
 
-hamMu2 = hamMu(2)
+hamMu2 = hamMu(2) 
+        #  lambda x : x**2
 hamMu3 = hamMu(3)
 hamMu4 = hamMu(4)
 
