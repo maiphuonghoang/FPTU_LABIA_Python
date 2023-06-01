@@ -31,6 +31,4 @@ if __name__ == '__main__':
     else:
         print("[-] SQL injection failed")
 
-# SELECT * FROM products WHERE Category = '' UNION SELECT NULL, abc, NULL--'
-# SELECT * FROM products WHERE Category = '' ORDER BY 4--' => 3 columns 
 

