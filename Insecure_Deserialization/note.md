@@ -1,0 +1,1 @@
+Serialization chuyển từ object sang stream of byte 
